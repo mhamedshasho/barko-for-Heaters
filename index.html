@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="المركز الرئيسي لمدافئ باركو في حلب. خدمات تركيب وصيانة مدافئ باركو وبانوراما، مع خدمة الصيانة المنزلية وتوفير قطع التبديل.">
+    <meta name="theme-color" content="#76232D">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SY">
+    <meta property="og:title" content="المركز الرئيسي لمدافئ باركو - بانوراما">
+    <meta property="og:description" content="تركيب وصيانة مدافئ باركو وبانوراما في حلب، مع خدمة الصيانة المنزلية.">
+    <title>المركز الرئيسي لمدافئ باركو - بانوراما | حلب</title>
+    
+    <!-- تحميل خط Cairo العربي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- تحميل أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- إعداد ألوان الهوية البصرية للشعار بتوازن راقٍ -->
+    <script>
+        if (typeof tailwind !== 'undefined') {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Cairo', 'sans-serif'],
+                        },
+                        colors: {
+                            barco: {
+                                burgundy: '#76232D',      // الأحمر الداكن الملكي للشعار
+                                burgundyDark: '#511820',  // درجة أعمق للتمييز اللطيف
+                                lime: '#829638',          // الأخضر الليموني الذهبي للشعار
+                                limeBright: '#C4D47A',    // ليموني مضيء داخل الشعار
+                                limeTint: '#F3F5E9',      // لمسة خلفية ناعمة جداً
+                                navy: '#252B38',          // الكحلي الداكن للنصوص والتفاصيل
+                                surface: '#F7F5F1',       // رمادي فاتح جداً للمساحات المريحة
+                            }
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --barco-primary: #76232D;
+            --barco-primary-deep: #511820;
+            --barco-accent: #829638;
+            --barco-accent-soft: #C4D47A;
+            --barco-ink: #252B38;
+            --barco-paper: #F7F5F1;
+            --barco-line: #E8E4DE;
+        }
+        html { scroll-padding-top: 6rem; }
+        body {
+            background: #fff;
+            color: var(--barco-ink);
+            letter-spacing: -.01em;
+        }
+        .site-header {
+            box-shadow: 0 5px 24px rgba(37, 43, 56, .045);
+            border-color: var(--barco-line);
+        }
+        .hero-section {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 12% 18%, rgba(130,150,56,.11), transparent 34%),
+                radial-gradient(ellipse at 88% 82%, rgba(118,35,45,.08), transparent 36%),
+                linear-gradient(135deg, #FBFAF7 0%, #F2F0E9 100%);
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(118,35,45,.08);
+            border-radius: 50%;
+            inset-inline-start: -190px;
+            top: -180px;
+            box-shadow: 0 0 0 28px rgba(118,35,45,.025), 0 0 0 58px rgba(118,35,45,.018);
+        }
+        .hero-brand-card {
+            background: linear-gradient(135deg, #87313B 0%, #76232D 52%, #511820 100%);
+            border-color: rgba(255,255,255,.16);
+            box-shadow: 0 24px 55px rgba(81,24,32,.19), inset 0 1px 0 rgba(255,255,255,.13);
+        }
+        .hero-brand-card::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(196,212,122,.17);
+            border-radius: 50%;
+            inset-inline-end: -105px;
+            top: -145px;
+            box-shadow: 0 0 0 22px rgba(196,212,122,.035), 0 0 0 48px rgba(196,212,122,.025);
+            pointer-events: none;
+        }
+        .hero-brand-card > * { position: relative; z-index: 1; }
+        .hero-brand-card h1 {
+            text-shadow: 0 3px 18px rgba(0,0,0,.12);
+            letter-spacing: -.055em;
+        }
+        .content-section h2 { letter-spacing: -.035em; }
+        .content-section .w-12.h-1 {
+            width: 3.25rem;
+            height: 4px;
+            background: linear-gradient(90deg, #829638, #C4D47A);
+        }
+        .service-card {
+            background: linear-gradient(145deg, #FBFAF8, #F5F3EE);
+            border-color: #EAE6DF;
+            border-radius: 1.35rem;
+            box-shadow: 0 5px 18px rgba(37,43,56,.035);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(118,35,45,.24);
+            box-shadow: 0 18px 38px rgba(37,43,56,.09);
+        }
+        .service-card h3 { letter-spacing: -.025em; }
+        .service-card > div:first-child {
+            box-shadow: inset 0 0 0 1px rgba(118,35,45,.045);
+        }
+        .spare-section {
+            background:
+                radial-gradient(circle at 8% 20%, rgba(130,150,56,.07), transparent 25%),
+                #F7F5F1;
+        }
+        .spare-section > div > div:last-child {
+            border-color: #E8E4DE;
+            box-shadow: 0 18px 45px rgba(37,43,56,.055);
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #FBFAF8, #F4F2EC);
+            border-color: #EAE6DF;
+            box-shadow: 0 6px 20px rgba(37,43,56,.035);
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(118,35,45,.2);
+            box-shadow: 0 14px 30px rgba(37,43,56,.075);
+        }
+        a[class*="bg-barco-burgundy"], button[class*="bg-barco-burgundy"] {
+            background-image: linear-gradient(135deg, #87313B, #76232D 58%, #511820);
+            box-shadow: 0 8px 20px rgba(118,35,45,.16);
+        }
+        a[class*="bg-barco-burgundy"]:hover, button[class*="bg-barco-burgundy"]:hover {
+            filter: brightness(1.06);
+            box-shadow: 0 11px 25px rgba(118,35,45,.22);
+        }
+        footer {
+            background: linear-gradient(135deg, #303746, #252B38 55%, #1C222E) !important;
+            border-top: 4px solid #829638;
+        }
+        @media (max-width: 640px) {
+            .hero-section { padding-top: 2.75rem; padding-bottom: 3rem; }
+            .hero-brand-card { border-radius: 1.5rem; }
+            .content-section { padding-top: 4.25rem; padding-bottom: 4.25rem; }
+            .service-card { padding: 1.45rem; }
+        }
+
+        :focus-visible {
+            outline: 3px solid #829638;
+            outline-offset: 3px;
+        }
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .service-card {
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(142, 22, 22, .2);
+            box-shadow: 0 14px 30px rgba(30, 34, 53, .07);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-barco-navy font-sans antialiased selection:bg-barco-lime selection:text-barco-navy">
+
+    <!-- ================= 1. الترويسة العلوية البسيطة والأنيقة ================= -->
+    <header class="site-header sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- شعار باركو - بانوراما بألوان اللافتة الأصلية -->
+                <a href="#home" class="flex items-center gap-3 focus:outline-none">
+                    <div class="bg-barco-burgundy border border-barco-lime/60 rounded-xl px-3.5 py-1.5 shadow-sm">
+                        <div class="flex flex-col items-center leading-none">
+                            <span class="text-lg sm:text-xl font-black text-barco-limeBright tracking-tight">
+                                باركــو
+                            </span>
+                            <span class="text-[10px] font-bold text-white/90 mt-0.5">
+                                بانوراما
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-sm sm:text-base text-barco-navy leading-snug">
+                            المركز الرئيسي لمدافئ باركو
+                        </span>
+                        <span class="text-xs text-slate-500 font-semibold">
+                            حلب، سوريا
+                        </span>
+                    </div>
+                </a>
+
+                <!-- قائمة التنقل لسطح المكتب -->
+                <nav class="hidden sm:flex items-center gap-7 text-sm font-bold text-slate-600">
+                    <a href="#services" class="hover:text-barco-burgundy transition-colors">الخدمات</a>
+                    <a href="#spare-parts" class="hover:text-barco-burgundy transition-colors">قطع التبديل</a>
+                    <a href="#contact" class="text-barco-burgundy hover:text-barco-burgundyDark transition-colors">اتصل بنا</a>
+                </nav>
+
+                <!-- زر القائمة للهاتف -->
+                <button id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-nav" class="sm:hidden w-11 h-11 flex items-center justify-center rounded-xl text-barco-navy hover:bg-barco-surface transition">
+                    <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- القائمة المنسدلة الهادئة للهاتف -->
+        <div id="mobile-nav" class="hidden sm:hidden bg-white border-t border-slate-100 px-4 py-3 space-y-1 shadow-lg">
+            <a href="#services" class="mobile-item block px-4 py-3 rounded-xl text-sm font-bold text-barco-navy hover:bg-barco-surface transition">
+                الخدمات
+            </a>
+            <a href="#spare-parts" class="mobile-item block px-4 py-3 rounded-xl text-sm font-bold text-barco-navy hover:bg-barco-surface transition">
+                قطع التبديل
+            </a>
+            <a href="#contact" class="mobile-item block px-4 py-3 rounded-xl text-sm font-extrabold text-barco-burgundy bg-barco-surface transition">
+                اتصل بنا
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= 2. الواجهة التعريفية الراقية (Clean & Balanced Hero) ================= -->
+    <section id="home" class="hero-section py-14 sm:py-24 border-b border-slate-200/70">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-7">
+            
+            <!-- شارة الموقع والاختصاص -->
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200/80 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-slate-600 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-barco-lime"></span>
+                <span>حلب، سوريا • تركيب • صيانة • قطع تبديل</span>
+            </div>
+
+            <!-- بطاقة الهوية الرسمية المستوحاة من اللافتة بتصميم هادئ ومتوازن -->
+            <div class="hero-brand-card bg-barco-burgundy rounded-[2rem] p-8 sm:p-14 shadow-xl border max-w-2xl mx-auto relative overflow-hidden">
+                <!-- شريط كحلي سفلي خفيف يحاكي تصميم اللافتة الأصلي -->
+                <div class="space-y-2">
+                    <p class="text-white/85 text-xs sm:text-sm font-bold tracking-wide">
+                        المركز الرئيسي لمدافئ
+                    </p>
+                    <div class="inline-block">
+                        <h1 class="text-5xl sm:text-6xl font-black text-barco-limeBright tracking-tight leading-none">
+                            باركــو
+                        </h1>
+                        <p class="text-right text-base sm:text-xl font-bold text-white/95 mt-1 pr-1">
+                            بانوراما
+                        </p>
+                    </div>
+                </div>
+
+                <!-- شريط الشعار النصي داخل البطاقة -->
+                <div class="mt-7 pt-5 border-t border-white/15 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+                    <span class="text-barco-limeBright font-extrabold text-base sm:text-lg">
+                        وعادت الصيانة من جديد... خدمة المنازل
+                    </span>
+                    <span class="hidden sm:inline text-white/30">|</span>
+                    <span class="bg-barco-navy text-white text-xs sm:text-sm font-extrabold px-3.5 py-1 rounded-full">
+                        اتصل ... نصل
+                    </span>
+                </div>
+            </div>
+
+            <!-- وصف مختصر وواضح -->
+            <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                خبرة متخصصة في تركيب وصيانة كافة موديلات مدافئ باركو وتوفير قطع التبديل، مع خدمة الصيانة المنزلية السريعة في كافة أحياء مدينة حلب.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-3 pt-1">
+                <a href="tel:0991483748" class="inline-flex items-center justify-center gap-2 rounded-xl bg-barco-burgundy px-6 py-3.5 text-sm font-extrabold text-white shadow-md hover:bg-barco-burgundyDark active:scale-[.98] transition">
+                    <i class="fa-solid fa-phone"></i>
+                    اتصل بالمركز
+                </a>
+                <a href="#services" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-extrabold text-barco-navy hover:border-barco-burgundy hover:text-barco-burgundy active:scale-[.98] transition">
+                    استعرض الخدمات
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 3. قسم الخدمات (مساحات نظيفة وتباعد مريح) ================= -->
+    <section id="services" class="content-section py-20 sm:py-28 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            
+            <!-- عنوان القسم -->
+            <div class="text-center max-w-lg mx-auto mb-12 space-y-2">
+                <span class="text-xs font-extrabold text-barco-burgundy tracking-wider uppercase">
+                    مجالات عملنا
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-barco-navy">
+                    خدمات المركز في حلب
+                </h2>
+                <div class="w-12 h-1 bg-barco-lime rounded-full mx-auto mt-2"></div>
+            </div>
+
+            <!-- شبكة البطاقات البسيطة بدون أزرار مزدحمة -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- الخدمة 1: التركيب -->
+                <div class="service-card bg-barco-surface rounded-2xl p-7 border border-slate-100 space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-barco-burgundy/10 text-barco-burgundy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-fire-burner"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-barco-navy">
+                        تركيب مدافئ باركو
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        تركيب وتمديد كافة موديلات مدافئ باركو وبانوراما وتوصيل المداخن وفق معايير الأمان والكفاءة الحرارية.
+                    </p>
+                </div>
+
+                <!-- الخدمة 2: الصيانة -->
+                <div class="service-card bg-barco-surface rounded-2xl p-7 border border-slate-100 space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-barco-limeTint text-barco-lime flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-barco-navy">
+                        الصيانة الدورية والشاملة
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        تنظيف الحراقات ومجاري الوقود، معايرة الاحتراق، وإصلاح الأعطال الفنية لضمان عمل المدفأة بأعلى أداء.
+                    </p>
+                </div>
+
+                <!-- الخدمة 3: خدمة المنازل -->
+                <div class="service-card bg-barco-surface rounded-2xl p-7 border border-slate-100 space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-barco-navy/10 text-barco-navy flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-barco-navy">
+                        خدمة المنازل (اتصل ... نصل)
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ورشة صيانة متنقلة تصل إلى منزلكم في حلب لإجراء الصيانة اللازمة في المكان دون عناء نقل المدفأة.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. قسم قطع التبديل الأصلية (لم يتم النشر بعد) ================= -->
+    <section id="spare-parts" class="content-section spare-section py-20 sm:py-28 border-y border-slate-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-lg mx-auto mb-10 space-y-2">
+                <span class="text-xs font-extrabold text-barco-burgundy tracking-wider">
+                    توفير قطع التبديل
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-barco-navy">
+                    قسم قطع التبديل الأصلية
+                </h2>
+                <div class="w-12 h-1 bg-barco-lime rounded-full mx-auto mt-2"></div>
+            </div>
+
+            <!-- صندوق الحالة الهادئ -->
+            <div class="bg-white rounded-3xl p-10 sm:p-14 border border-slate-200/80 text-center space-y-3">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-barco-surface text-slate-400 flex items-center justify-center text-2xl">
+                    <i class="fa-regular fa-folder-open"></i>
+                </div>
+                <p class="text-lg sm:text-xl font-extrabold text-barco-navy">
+                    قائمة قطع التبديل غير متاحة حالياً
+                </p>
+                <p class="text-slate-500 text-sm max-w-md mx-auto leading-relaxed">
+                    لا توجد قائمة منشورة بالقطع على الموقع حالياً. للاستفسار عن توفر قطعة تبديل، يرجى التواصل مع المركز مباشرة.
+                </p>
+                <a href="tel:0991483748" class="inline-flex items-center justify-center gap-2 mt-3 rounded-xl bg-barco-burgundy px-5 py-3 text-sm font-extrabold text-white hover:bg-barco-burgundyDark transition">
+                    <i class="fa-solid fa-phone"></i>
+                    الاستفسار عن قطعة
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= 5. قسم اتصل بنا المنظم والأنيق (بديلاً عن الحجز) ================= -->
+    <section id="contact" class="content-section py-20 sm:py-28 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            
+            <!-- عنوان القسم -->
+            <div class="text-center max-w-lg mx-auto mb-12 space-y-2">
+                <span class="text-xs font-extrabold text-barco-burgundy tracking-wider">
+                    قنوات التواصل
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-barco-navy">
+                    اتصل بنا
+                </h2>
+                <p class="text-slate-500 text-sm">
+                    نسعد باستقبال اتصالاتكم واستفساراتكم في حلب • اتصل ... نصل
+                </p>
+                <div class="w-12 h-1 bg-barco-lime rounded-full mx-auto mt-2"></div>
+            </div>
+
+            <!-- شبكة بيانات التواصل النظيفة والمرتبة -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                
+                <!-- الهاتف الأول -->
+                <div class="contact-card bg-barco-surface rounded-2xl p-6 border border-slate-100 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-barco-burgundy text-white flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-slate-400 mb-0.5">للتواصل الهاتفي</span>
+                            <a href="tel:0991483748" class="text-lg sm:text-xl font-black text-barco-navy hover:text-barco-burgundy transition tracking-wide" dir="ltr">
+                                0991 48 37 48
+                            </a>
+                        </div>
+                    </div>
+                    <button type="button" onclick="copyNumber('0991483748', this)" aria-label="نسخ الرقم الأول"
+                        class="px-3 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:text-barco-burgundy hover:border-barco-burgundy/40 active:scale-95 transition shrink-0">
+                        <i class="fa-regular fa-copy ml-1"></i>نسخ
+                    </button>
+                </div>
+
+                <!-- الهاتف الثاني -->
+                <div class="contact-card bg-barco-surface rounded-2xl p-6 border border-slate-100 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-barco-burgundy text-white flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-slate-400 mb-0.5">رقم تواصل إضافي</span>
+                            <a href="tel:0944720716" class="text-lg sm:text-xl font-black text-barco-navy hover:text-barco-burgundy transition tracking-wide" dir="ltr">
+                                0944 720 716
+                            </a>
+                        </div>
+                    </div>
+                    <button type="button" onclick="copyNumber('0944720716', this)" aria-label="نسخ الرقم الثاني"
+                        class="px-3 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-600 hover:text-barco-burgundy hover:border-barco-burgundy/40 active:scale-95 transition shrink-0">
+                        <i class="fa-regular fa-copy ml-1"></i>نسخ
+                    </button>
+                </div>
+
+                <!-- البريد الإلكتروني -->
+                <div class="contact-card bg-barco-surface rounded-2xl p-6 border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-barco-limeTint text-barco-lime flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <span class="block text-xs font-bold text-slate-400 mb-0.5">البريد الإلكتروني</span>
+                        <a href="mailto:mhmdmnjwnt6@gmail.com" class="text-sm sm:text-base font-extrabold text-barco-navy hover:text-barco-burgundy transition break-all" dir="ltr">
+                            mhmdmnjwnt6@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- الموقع -->
+                <div class="contact-card bg-barco-surface rounded-2xl p-6 border border-slate-100 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-barco-navy/10 text-barco-navy flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 mb-0.5">الموقع</span>
+                        <p class="text-base sm:text-lg font-extrabold text-barco-navy">
+                            حلب، سوريا
+                        </p>
+                        <span class="block text-xs text-slate-500">خدمة المنازل لكافة الأحياء</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-white/95 backdrop-blur border-t border-slate-200">
+        <a href="tel:0991483748" class="flex items-center justify-center gap-2 w-full rounded-xl bg-barco-burgundy py-3.5 text-sm font-extrabold text-white shadow-lg">
+            <i class="fa-solid fa-phone"></i>
+            اتصل بالمركز
+        </a>
+    </div>
+
+    <!-- ================= 6. التذييل البسيط (Minimal Footer) ================= -->
+    <footer class="bg-barco-navy text-slate-300 py-10 pb-24 sm:pb-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-4">
+            <div class="inline-flex items-center gap-2.5">
+                <span class="text-xl font-black text-barco-limeBright">باركــو</span>
+                <span class="text-xs font-bold text-white/70">بانوراما</span>
+                <span class="text-white/20">•</span>
+                <span class="text-sm font-bold text-white">المركز الرئيسي لمدافئ باركو</span>
+            </div>
+            <p class="text-xs text-slate-400">
+                حلب، سوريا • تركيب وصيانة المدافئ وتوفير قطع التبديل • خدمة المنازل
+            </p>
+            <p class="text-[11px] text-slate-500 pt-2 border-t border-white/10">
+                © جميع الحقوق محفوظة للمركز الرئيسي لمدافئ باركو
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileItems = document.querySelectorAll('.mobile-item');
+
+        function setMenuOpen(open) {
+            if (!menuToggle || !mobileNav || !menuIcon) return;
+            mobileNav.classList.toggle('hidden', !open);
+            menuToggle.setAttribute('aria-expanded', String(open));
+            menuToggle.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+            menuIcon.classList.toggle('fa-bars', !open);
+            menuIcon.classList.toggle('fa-xmark', open);
+        }
+
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', () => {
+                setMenuOpen(mobileNav.classList.contains('hidden'));
+            });
+
+            mobileItems.forEach(item => {
+                item.addEventListener('click', () => setMenuOpen(false));
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
+
+            document.addEventListener('click', event => {
+                if (!mobileNav.classList.contains('hidden') &&
+                    !mobileNav.contains(event.target) &&
+                    !menuToggle.contains(event.target)) {
+                    setMenuOpen(false);
+                }
+            });
+        }
+
+        async function copyNumber(numberText, btn) {
+            const originalContent = btn.innerHTML;
+            let copied = false;
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(numberText);
+                    copied = true;
+                } else {
+                    const temp = document.createElement('textarea');
+                    temp.value = numberText;
+                    temp.setAttribute('readonly', '');
+                    temp.style.position = 'fixed';
+                    temp.style.opacity = '0';
+                    document.body.appendChild(temp);
+                    temp.select();
+                    copied = document.execCommand('copy');
+                    temp.remove();
+                }
+            } catch (error) {
+                copied = false;
+            }
+
+            btn.innerHTML = copied
+                ? '<i class="fa-solid fa-check ml-1"></i>تم النسخ'
+                : '<i class="fa-solid fa-triangle-exclamation ml-1"></i>تعذر النسخ';
+
+            btn.setAttribute('aria-live', 'polite');
+            window.setTimeout(() => {
+                btn.innerHTML = originalContent;
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
